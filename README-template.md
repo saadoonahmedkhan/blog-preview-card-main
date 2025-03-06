@@ -1,110 +1,132 @@
-# Frontend Mentor - Blog preview card solution
+# Frontend Mentor - Blog Preview Card Solution
 
-This is a solution to the [Blog preview card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is my solution to the [Blog Preview Card Challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). This challenge helped me practice my HTML, CSS, and JavaScript skills by building a realistic project.
 
-## Table of contents
+## Table of Contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The Challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+- [My Process](#my-process)
+  - [Built With](#built-with)
+  - [What I Learned](#what-i-learned)
+  - [Continued Development](#continued-development)
+  - [Useful Resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
-### The challenge
+### The Challenge
 
 Users should be able to:
 
-- See hover and focus states for all interactive elements on the page
+- View the optimal layout depending on their device's screen size
+- See hover and focus states for interactive elements
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Design preview for the Blog Preview Card](./preview.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- **Solution URL:** [Solution URL](https://github.com/saadoonahmedkhan/blog-preview-card-main)
+- **Live Site URL:** [Live Site URL](https://saadoonahmedkhan.github.io/blog-preview-card-main/)
 
-## My process
+## My Process
 
-### Built with
+### Built With
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- **Semantic HTML5 markup**
+- **CSS custom properties**
+- **Flexbox & CSS Grid**
+- **Mobile-first workflow**
+- **JavaScript for interactivity**
+- **jQuery (if needed)**
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### What I Learned
 
-### What I learned
+This project helped me improve my understanding of **responsive design**, **CSS layout techniques**, and **hover effects**. Below are some key takeaways:
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### **1. Using CSS Grid & Flexbox for Layout**
+I structured the **blog preview card** using a combination of **CSS Grid** and **Flexbox**, ensuring proper alignment and responsiveness.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+#### **2. Implementing Hover Effects with `::after`**
+I added a **brightness effect on hover** using `::after`, making the card stand out.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```css
+figure::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 100%, 0.3);
+  opacity: 0;
+  transition: opacity ease-in-out 0.5s;
+}
 
-### Continued development
+figure:hover::after {
+  opacity: 0.8;
+}
+```
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+#### **3. Adding Hover & Active Effects on `h1`**
+I applied a smooth **color transition** to `h1` when hovered or clicked.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+```css
+h1 {
+  transition: color 0.5s ease-in-out;
+}
 
-### Useful resources
+h1:hover,
+h1:active {
+  color: gold;
+}
+```
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+#### **4. Mobile-First Approach**
+I structured my CSS using **media queries**, ensuring that the card looks great on both **mobile (320px)** and **desktop (1440px)**.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+```css
+@media screen and (min-width: 320px) and (max-width: 550px) {
+    figure {
+        width: 15rem;
+        height: auto;
+    }
+}
+```
+
+#### **5. JavaScript & jQuery for Future Interactions**
+Although **no complex JS functionality was required**, I included `index.js` and `jquery.js` for potential **interactivity** (like animations or API calls in the future).
+
+### Continued Development
+
+I want to continue improving:
+- **Accessibility (ARIA roles, keyboard navigation)**
+- **Advanced animations using CSS and JavaScript**
+- **Better performance optimizations for responsiveness**
+
+### Useful Resources
+
+- [CSS Tricks - Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Helped me structure the layout effectively.
+- [MDN Web Docs - Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) - Improved my understanding of Grid systems.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@saadoonahmedkhan](https://www.frontendmentor.io/profile/saadoonahmedkhan)
+- Twitter - [@saadoonahmedkhan](https://www.twitter.com/saadoonahmedkhan)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+---
 
-## Acknowledgments
+Thanks for checking out my solution! Let me know if you have any feedback. 🚀
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
